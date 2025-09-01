@@ -34,6 +34,18 @@ public class TodoService {
         );
     }
 
+    public List<TodoResponse> getTodoByDone(Boolean done) {
+        List<Todo> todos = todoRepository.findByDone(done);
+
+        return todos.stream().map(todo -> new TodoResponse(
+                todo.getId(),
+                todo.getTitle(),
+                todo.getDescription(),
+                todo.isDone()
+        )).toList();
+
+    }
+
     public TodoResponse insertTodo(TodoRequest request) {
         Todo todo = new Todo();
         todo.setTitle(request.getTitle().trim());

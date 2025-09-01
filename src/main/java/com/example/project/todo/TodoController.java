@@ -21,6 +21,11 @@ public class TodoController {
         return todoService.getAllTodos();
     }
 
+    @GetMapping("filterByDone/{done}")
+    public List<TodoResponse> getTodosByDone(@PathVariable Boolean done){
+        return todoService.getTodoByDone(done);
+    }
+
     @GetMapping("{id}")
     public TodoResponse getTodoById(@PathVariable Integer id){
         return todoService.getTodoById(id);
