@@ -28,8 +28,8 @@ This project is designed for learning and practicing **REST, Spring Boot, DTOs, 
 
 ### 1. Clone the project
 ```bash
-git clone https://github.com/your-username/todo-api.git
-cd todo-api
+git clone https://github.com/binaryFlow/java-spring-boot-todo-api-rest.git
+cd java-spring-boot-todo-api-rest
 ```
 
 ### 2. Run the application
