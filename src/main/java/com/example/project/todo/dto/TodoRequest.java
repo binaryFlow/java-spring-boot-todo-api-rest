@@ -11,7 +11,6 @@ public class TodoRequest {
     private String title;
 
     @Size(max = 500, message = "Description must be at most 500 characters")
-    private String description;
     private Boolean done;
 
     public Boolean getDone() {
@@ -30,11 +29,5 @@ public class TodoRequest {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
-    }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }

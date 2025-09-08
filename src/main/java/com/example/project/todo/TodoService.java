@@ -18,7 +18,6 @@ public class TodoService {
         return todoRepository.findAll().stream().map(todo -> new TodoResponse(
                 todo.getId(),
                 todo.getTitle(),
-                todo.getDescription(),
                 todo.isDone()
         )).toList();
     }
@@ -29,7 +28,6 @@ public class TodoService {
         return new TodoResponse(
                 todo.getId(),
                 todo.getTitle(),
-                todo.getDescription(),
                 todo.isDone()
         );
     }
@@ -40,7 +38,6 @@ public class TodoService {
         return todos.stream().map(todo -> new TodoResponse(
                 todo.getId(),
                 todo.getTitle(),
-                todo.getDescription(),
                 todo.isDone()
         )).toList();
 
@@ -49,7 +46,6 @@ public class TodoService {
     public TodoResponse insertTodo(TodoRequest request) {
         Todo todo = new Todo();
         todo.setTitle(request.getTitle().trim());
-        todo.setDescription(request.getDescription());
 
 
         Todo saved = todoRepository.save(todo);
@@ -57,7 +53,6 @@ public class TodoService {
         return new TodoResponse(
                 saved.getId(),
                 saved.getTitle(),
-                saved.getDescription(),
                 saved.isDone()
         );
     }
@@ -65,7 +60,6 @@ public class TodoService {
     public TodoResponse updateTodoById(Integer id, TodoRequest request) {
         Todo todo = todoRepository.findById(id).orElseThrow(() -> new RuntimeException("Todo not found"));
         todo.setTitle(request.getTitle().trim());
-        todo.setDescription(request.getDescription());
         if(request.getDone() != null) {
             todo.setDone(request.getDone());
         }
@@ -74,7 +68,6 @@ public class TodoService {
         return new TodoResponse(
                 saved.getId(),
                 saved.getTitle(),
-                saved.getDescription(),
                 saved.isDone()
         );
 

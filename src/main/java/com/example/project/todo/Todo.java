@@ -11,7 +11,6 @@ public class Todo {
     private Integer id;
     @Column(nullable = false)
     private String title;
-    private String description;
     private boolean done = false;
 
     public Todo() {
@@ -19,10 +18,9 @@ public class Todo {
 
 
 
-    public Todo(Integer id, String title, String description,  boolean done) {
+    public Todo(Integer id, String title,  boolean done) {
         this.id = id;
         this.title = title;
-        this.description = description;
         this.done = done;
 
     }
@@ -43,13 +41,7 @@ public class Todo {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
-    }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public boolean isDone() {
         return done;
@@ -63,11 +55,11 @@ public class Todo {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Todo todo = (Todo) o;
-        return Objects.equals(id, todo.id) && Objects.equals(title, todo.title) && Objects.equals(description, todo.description);
+        return done == todo.done && Objects.equals(id, todo.id) && Objects.equals(title, todo.title);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, description);
+        return Objects.hash(id, title, done);
     }
 }

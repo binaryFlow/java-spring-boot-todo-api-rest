@@ -27,6 +27,8 @@ public class ProjectApplication {
         List<Map<String, String>> endpoints = List.of(
                 Map.of("method", "GET", "path", "/api/v1/todos", "description", "List all todos"),
                 Map.of("method", "GET", "path", "/api/v1/todos/{id}", "description", "Get todo by ID"),
+                Map.of("method", "PUT", "path", "/api/v1/todos/{id}", "description", "Edit a todo"),
+
                 Map.of("method", "GET", "path", "/api/v1/todos/filterByDone/{done}", "description", "Filter todos by completed"),
                 Map.of("method", "POST", "path", "/api/v1/todos", "description", "Create a new todo"),
                 Map.of("method", "DELETE", "path", "/api/v1/todos/{id}", "description", "Delete a todo by ID")
